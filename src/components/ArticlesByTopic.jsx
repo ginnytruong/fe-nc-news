@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { fetchData } from "../../utils/api";
+import ArticleContext from '../context/ArticleContext'
 
 const ArticlesByTopic = () => {
     const { topic } = useParams();
+    const { articles, setArticles } = useContext(ArticleContext);
     const [isLoading, setIsLoading] = useState(true);
-    const [articles, setArticles] = useState([]);
 
     useEffect(() => {
         setIsLoading(true);
@@ -14,7 +15,7 @@ const ArticlesByTopic = () => {
                 setArticles(data.articles);
                 setIsLoading(false);
             })
-    }, [topic]);
+    }, [topic, setArticles]);
 
     const articlesByTopicMap = articles.map((article) => (
         <li className="article" key={article.article_id}>
@@ -36,6 +37,5 @@ const ArticlesByTopic = () => {
         </div>
     );
 };
-
 
 export default ArticlesByTopic;
