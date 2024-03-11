@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
+import ArticleContext from '../context/ArticleContext'
 import { fetchData } from "../../utils/api";
 
 const Articles = () => {
     const [isLoading, setIsLoading] = useState(true);
-    const [articles, setArticles] = useState([]);
+    const { articles, setArticles } = useContext(ArticleContext);
 
     useEffect(() => {
         setIsLoading(true);
@@ -12,7 +13,7 @@ const Articles = () => {
                 setArticles(data.articles);
                 setIsLoading(false);
             })
-    }, []);
+    }, [setArticles]);
 
 
     const articlesMap = articles.map((article) => (
