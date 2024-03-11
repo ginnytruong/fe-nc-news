@@ -1,0 +1,35 @@
+App
+├── Header
+├── NavigationBar
+│   ├── HomeLink
+│   ├── TopicLinks
+│   └── UserProfileLink
+├── HomePage (All Articles) - (state: [isLoading, setIsLoading], [articles, setArticles] ), <route>
+│   └── Article Cards
+├── TopicPage (Topics List) - (state: [topic, setTopics], [selectedTopic, setSelectedTopics] [isLoading, setIsLoading]), <route>
+│   └── Topics Cards
+├── ArticleListPage (Articles by Topic) (state: [selectedTopic], [articles, setArticles], [isLoading, setIsLoading]), <route>
+│   └── Article Cards By Topic
+├── ArticleDetailPage - (state: [articles, setArticles], [isLoading, setIsLoading], [newComment, setNewComment]), <route>
+│   ├── ArticleTitle
+│   ├── ArticleContent
+│   ├── UpvoteButton
+│   ├── DownvoteButton
+│   └── CommentsSection 
+├── SignInPage (Sign-in endpoint) - (state: [username, setUsername], [isLoggedIn, setIsLoggedIn]), <route>
+│   ├── SignInForm
+└── UserPage, <route>
+    ├── UserInfo
+    │   ├── Avatar
+    │   ├── Username
+    │   └── Full Name
+    ├── UserArticles (List of articles written by the user) - (state: [updatingArticle, setUpdatingArticle])
+    │   ├── ArticleItem
+    │   │   ├── Title
+    │   │   ├── Content
+    │   │   └── Edit Button
+    └── UserComments (List of comments posted by the user) - (state: isDeletingComment, setIsDeletingComment)
+        ├── CommentItem
+        │   ├── Content
+        │   └── Edit Button
+        └── Delete Button
