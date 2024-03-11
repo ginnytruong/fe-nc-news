@@ -2,6 +2,8 @@ import './App.css';
 import Header from './components/Header'
 import Nav from './components/Nav';
 import Articles from './components/Articles'
+import ArticlesByTopic from './components/ArticlesByTopic'
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
 
@@ -9,7 +11,11 @@ function App() {
     <div className="App">
         <Header />
         <Nav />
-        <Articles />
+        <Routes>
+        <Route path="/" element={<Articles/>} />
+        <Route path="/articles" element={<Articles/>} />
+        <Route path="/topics/:topic" element={<ArticlesByTopic/>} />
+        </Routes>
         </div>
     )
 }
