@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchData } from "../../utils/api";
 
@@ -18,8 +18,10 @@ const ArticlesByTopic = () => {
 
     const articlesByTopicMap = articles.map((article) => (
         <li className="article" key={article.article_id}>
+            <Link to={`/articles/${article.article_id}`}>
             <img src={article.article_img_url} alt={article.title} className="article-img"/>
             <h2 className="article-title">{article.title}</h2>
+            </Link>
             <p className="article-author">Author: {article.author}</p>
         </li>
     ));
