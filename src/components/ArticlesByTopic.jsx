@@ -1,11 +1,10 @@
 import { useParams } from "react-router-dom";
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { fetchData } from "../../utils/api";
-import ArticleContext from '../context/ArticleContext'
 
 const ArticlesByTopic = () => {
     const { topic } = useParams();
-    const { articles, setArticles } = useContext(ArticleContext);
+    const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
