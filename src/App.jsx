@@ -19,9 +19,7 @@ function App() {
         <Route path="/articles" element={<ArticlesList/>} />
         <Route path="/topics" element={<ArticlesList/>} />
         <Route path="/topics/:topic" element={<ArticlesByTopic/>} />
-        <Route path="/articles/:article_id" element={<SingleArticle/>} /> {/* Ensure SingleArticle component is rendered when the route matches */}
-                {/* Placeholder text */}
-                <Route path="/articles/:article_id" element={<div>Single Article Placeholder</div>} />
+        <Route path="/articles/:article_id" element={<SingleArticle/>} />
         </Routes>
         </div>
     )

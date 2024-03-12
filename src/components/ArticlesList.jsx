@@ -15,7 +15,6 @@ const ArticlesList = () => {
             })
     }, [setArticles]);
 
-
     const articlesMap = articles.map((article) => 
         <li className="article" key={article.article_id}>
             <Link to={`/articles/${article.article_id}`}>
