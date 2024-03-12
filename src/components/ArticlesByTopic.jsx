@@ -10,7 +10,7 @@ const ArticlesByTopic = () => {
     useEffect(() => {
         setIsLoading(true);
         fetchData(`/articles?topic=${topic}`)
-            .then(data => {
+            .then((data)=> {
                 setArticles(data.articles);
                 setIsLoading(false);
             })

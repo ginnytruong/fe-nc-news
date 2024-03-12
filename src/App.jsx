@@ -6,8 +6,6 @@ import ArticlesByTopic from './components/ArticlesByTopic';
 import SingleArticle from './components/SingleArticle';
 import { Routes, Route } from 'react-router-dom';
 
-
-
 function App() {
 
     return (
