@@ -1,10 +1,9 @@
-import { useContext, useState, useEffect } from "react";
-import ArticleContext from '../context/ArticleContext'
+import { useState, useEffect } from "react";
 import { fetchData } from "../../utils/api";
 
 const Articles = () => {
     const [isLoading, setIsLoading] = useState(true);
-    const { articles, setArticles } = useContext(ArticleContext);
+    const [articles, setArticles] = useState([]);
 
     useEffect(() => {
         setIsLoading(true);
