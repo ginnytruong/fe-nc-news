@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { fetchData } from "../../utils/api";
+import { fetchSingleArticle, fetchArticleComments } from "../../utils/api";
 import Comments from './Comments';
 
 const SingleArticle = () => {
@@ -11,16 +11,17 @@ const SingleArticle = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        fetchData(`/articles/${article_id}`)
+        fetchSingleArticle(article_id)
         .then((data) => {
             setSelectedArticle(data);
             setIsLoading(false);
         })
-        fetchData(`/articles/${article_id}/comments`)
+        fetchArticleComments(article_id)
         .then((data) => {
-            setComments(data.comments)
+            setComments(data)
         })
     }, [article_id]);
+
 
     const SingleArticleCard = () => {
         return (

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchData } from "../../utils/api";
+import { fetchAllArticles } from "../../utils/api";
 import { Link } from 'react-router-dom';
 
 const ArticlesList = () => {
@@ -8,9 +8,9 @@ const ArticlesList = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        fetchData('/articles')
+        fetchAllArticles()
             .then((data) => {
-                setArticles(data.articles);
+                setArticles(data);
                 setIsLoading(false);
             })
     }, [setArticles]);
