@@ -27,3 +27,13 @@ export const fetchAllArticles = async () => {
 export const patchArticleVotes = async (article_id, patchBody) => {
     await ncNewsApi.patch(`/articles/${article_id}`, patchBody);
 };
+
+export const postComment = async (article_id, comment) => {
+    const { data } = await ncNewsApi.post(`/articles/${article_id}/comments`, comment);
+    return data.comments;
+}
+
+export const fetchUsers = async () => {
+    const { data } = await ncNewsApi.get('/users');
+    return data.users;
+};
