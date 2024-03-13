@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchSingleArticle, fetchArticleComments } from "../../utils/api";
-import Comments from './Comments';
+import CommentCard from './CommentCard';
+import ArticleVotes from './ArticleVotes';
 
 const SingleArticle = () => {
     const { article_id } = useParams();
@@ -22,6 +23,11 @@ const SingleArticle = () => {
         })
     }, [article_id]);
 
+    const updateVotes= (newVotes) => {
+        setSelectedArticle((article) => {
+            return {...article, votes: newVotes};
+        });
+    };
 
     const SingleArticleCard = () => {
         return (
@@ -30,7 +36,8 @@ const SingleArticle = () => {
                 <p className="single-article-author">Author: {selectedArticle.author}</p>
                 <img className="single-article-img" src={selectedArticle.article_img_url}/>
                 <p className="single-article-body">{selectedArticle.body}</p>
-                <Comments comments ={comments}/>
+                <ArticleVotes article_id={article_id} votes={selectedArticle.votes} updateVotes={updateVotes}/>
+                <CommentCard comments={comments}/>
             </div>
         )
         }

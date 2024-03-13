@@ -1,4 +1,5 @@
-const Comments = ({ comments }) => {
+const CommentCard = ({ comments }) => {
+
     return (
         <div className="comments-card">
             <h2 className="comments-title">Comments</h2>
@@ -11,7 +12,7 @@ const Comments = ({ comments }) => {
                 ))}
             </ul>
         </div>
-    )
+    );
 };
 
-export default Comments;
+export default CommentCard;
