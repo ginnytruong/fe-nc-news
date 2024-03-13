@@ -37,7 +37,7 @@ const SingleArticle = () => {
                 <img className="single-article-img" src={selectedArticle.article_img_url}/>
                 <p className="single-article-body">{selectedArticle.body}</p>
                 <ArticleVotes article_id={article_id} votes={selectedArticle.votes} updateVotes={updateVotes}/>
-                <CommentCard comments={comments}/>
+                <CommentCard comments={comments} article_id={article_id}/>
             </div>
         )
         }

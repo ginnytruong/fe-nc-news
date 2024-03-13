@@ -1,6 +1,11 @@
-const CommentCard = ({ comments }) => {
+import CommentForm from "./CommentForm";
+
+
+const CommentCard = ({ comments, article_id }) => {
 
     return (
+        <>
+        <CommentForm article_id={article_id}/>
         <div className="comments-card">
             <h2 className="comments-title">Comments</h2>
             <ul className="comment-list">
@@ -12,6 +17,7 @@ const CommentCard = ({ comments }) => {
                 ))}
             </ul>
         </div>
+        </>
     );
 };
 
