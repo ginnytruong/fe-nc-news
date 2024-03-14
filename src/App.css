@@ -28,10 +28,11 @@ body {
   justify-content: center; 
   align-items: center;
   white-space: normal;
+  text-align: center;
 }
 
 .navbar li {
-  margin-right: 20px; 
+  margin: 0 10px;
   position: relative; 
 }
 
@@ -44,6 +45,10 @@ body {
 .navbar .dropdown {
   display: inline-block; 
   position: relative; 
+}
+
+.navbar li.dropdown {
+  margin-right: 10px
 }
 
 .navbar .dropdown-content {

@@ -1,7 +1,6 @@
 import CommentForm from "./CommentForm";
 
 const CommentCard = ({ comments, article_id }) => {
-
     return (
         <>
         <CommentForm article_id={article_id} />

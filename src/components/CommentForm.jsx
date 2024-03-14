@@ -10,12 +10,10 @@ const CommentForm = ({ article_id }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
         if (!isLoggedIn) {
             setSubmitMessage('Please sign in to leave a comment!');
             return;
         }
-
         setIsPosting(true);
         postComment(article_id, { ...comment, username: selectedUser })
             .then(() => {
