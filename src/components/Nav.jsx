@@ -1,11 +1,10 @@
 import {Link} from 'react-router-dom'
-
 const Nav = () => {
     return (
     <nav className="navbar" id="navbar">
     <ul>
-        <li><a href="/">Home</a></li>
         <li>
+        <Link to = '/' className="dropbtn">Home</Link>
             <div className="dropdown">
             <Link to = '/topics' className="dropbtn">Topics</Link>
             <div className="dropdown-content">
@@ -15,10 +14,9 @@ const Nav = () => {
             </div>
             </div>
         </li>
-        <li> <Link to = '/users'>User</Link></li>
+        <li> <Link to = '/users'>Sign In</Link></li>
     </ul>
 </nav>
 )
 }
-
 export default Nav;

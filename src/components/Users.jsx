@@ -16,10 +16,8 @@ const Users = () => {
     const handleSignInOut = (username) => {
         if (isLoggedIn && selectedUser === username) {
             signOut();
-            console.log('User signed out:', selectedUser)
         } else {
             signIn(username);
-            console.log('User signed in:', username);
         }
     };
 

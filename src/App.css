@@ -28,10 +28,11 @@ body {
   justify-content: center; 
   align-items: center;
   white-space: normal;
+  text-align: center;
 }
 
 .navbar li {
-  margin-right: 20px; 
+  margin: 0 10px;
   position: relative; 
 }
 
@@ -44,6 +45,10 @@ body {
 .navbar .dropdown {
   display: inline-block; 
   position: relative; 
+}
+
+.navbar li.dropdown {
+  margin-right: 10px
 }
 
 .navbar .dropdown-content {
@@ -207,16 +212,16 @@ body {
 }
 
 .vote-button {
-background-color: transparent;
-border: none;
-cursor: pointer;
-outline: none;
-width: 24px;
-height: 24px; 
-margin: 0 5px; 
-display: flex; 
-justify-content: center;
-align-items: center; 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  width: 24px;
+  height: 24px; 
+  margin: 0 5px; 
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
 }
 
 .vote-button:hover {
