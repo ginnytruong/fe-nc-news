@@ -1,11 +1,13 @@
 import CommentForm from "./CommentForm";
-
+import  { UserContext } from '../components/UserContext';
+import { useContext } from "react";
 
 const CommentCard = ({ comments, article_id }) => {
+    const { selectedUser } = useContext(UserContext)
 
     return (
         <>
-        <CommentForm article_id={article_id}/>
+        <CommentForm article_id={article_id} />
         <div className="comments-card">
             <h2 className="comments-title">Comments</h2>
             <ul className="comment-list">
