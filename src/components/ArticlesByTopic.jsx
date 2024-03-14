@@ -27,15 +27,18 @@ const ArticlesByTopic = () => {
     ));
 
     return (
-        <div className="articles-page">
-            {isLoading ? (
-                <p>Loading articles...</p>
-            ) : (
-                <ul className="article-list">
-                    {articlesByTopicMap}
-                </ul>
-            )}
-        </div>
+        <>
+            <div className="articles-page">
+                <h1 className="topic-header">Articles on {topic}</h1>
+                {isLoading ? (
+                    <p>Loading articles...</p>
+                ) : (
+                    <ul className="article-list">
+                        {articlesByTopicMap}
+                    </ul>
+                )}
+            </div>
+        </>
     );
 };
 

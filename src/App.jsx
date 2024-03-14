@@ -11,7 +11,7 @@ import { UserProvider } from './components/UserContext';
 function App() {
   return (
     <div className="App">
-      <UserProvider >
+      <UserProvider>
         <Header />
         <Nav />
         <Routes>

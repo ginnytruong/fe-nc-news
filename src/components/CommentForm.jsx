@@ -1,6 +1,9 @@
 import { useState, useContext } from 'react';
 import { postComment } from '../../utils/api';
 import { UserContext } from '../components/UserContext';
+import { useState, useContext } from 'react';
+import { postComment } from '../../utils/api';
+import { UserContext } from '../components/UserContext';
 
 const CommentForm = ({ article_id }) => {
     const [comment, setComment] = useState({ body: '' });
