@@ -1,66 +1,52 @@
-import { useEffect, useState } from 'react';
-import { fetchUsers, postComment } from '../../utils/api';
+import { useState, useContext } from 'react';
+import { postComment } from '../../utils/api';
+import { UserContext } from '../components/UserContext';
 
 const CommentForm = ({ article_id }) => {
-    const [comment, setComment] = useState({ username: '', body: '' });
-    const [existingUser, setExistingUser] = useState([]);
+    const [comment, setComment] = useState({ body: '' });
     const [submitMessage, setSubmitMessage] = useState('');
     const [isPosting, setIsPosting] = useState(false);
-
-    useEffect(() => {
-        fetchUsers()
-            .then((user) => {
-                setExistingUser(user);
-            })
-    }, []);
+    const { selectedUser, isLoggedIn } = useContext(UserContext);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const userExists = existingUser.find(user => user.username === comment.username);
 
-        setSubmitMessage('');
-        setIsPosting(userExists);
-
-        if (userExists) {
-            postComment(article_id, comment)
-                .then(() => {
-                    setComment({ username: '', body: '' });
-                    setSubmitMessage('Comment posted successfully!')
-                })
-                .finally(()=>{
-                    setIsPosting(false)
-                })
-        } else {
-            setSubmitMessage('Please sign up to leave a comment!');
+        if (!isLoggedIn) {
+            setSubmitMessage('Please sign in to leave a comment!');
+            return;
         }
+
+        setIsPosting(true);
+        postComment(article_id, { ...comment, username: selectedUser })
+            .then(() => {
+                setComment({ body: '' });
+                setSubmitMessage('Comment posted successfully!');
+            })
+            .finally(() => {
+                setIsPosting(false);
+            });
     };
 
     return (
-                <div className="comment-form">
-                    <form id="user-comments-form" onSubmit={handleSubmit}>
-                        <label htmlFor="username">Username:</label>
-                        <input
-                            type="text"
-                            id="username"
-                            required
-                            value={comment.username}
-                            onChange={(event) => setComment({ ...comment, username: event.target.value })}
-                        />
-                        <label htmlFor="comment">Comment:</label>
-                        <textarea
-                            id="comment"
-                            value={comment.body}
-                            onChange={(e) => setComment({ ...comment, body: e.target.value })}
-                            placeholder="Enter your comment"
-                            rows={4}
-                            cols={50}
-                            required
-                        />
-                        <button type="post-comment-button" disabled={isPosting}>{isPosting ? 'Posting...' : 'Post Comment'}</button>
-                        {submitMessage ? <p>{submitMessage}</p> : null}
-                    </form>
-                </div>
-    )
+        <div className="comment-form">
+            <form id="user-comments-form" onSubmit={handleSubmit}>
+                <label htmlFor="comment">Comment:</label>
+                <textarea
+                    id="comment"
+                    value={comment.body}
+                    onChange={(e) => setComment({ ...comment, body: e.target.value })}
+                    placeholder="Enter your comment"
+                    rows={4}
+                    cols={50}
+                    required
+                />
+                <button type="post-comment-button">
+                    {isPosting ? 'Posting...' : 'Post Comment'}
+                </button>
+                {submitMessage ? <p>{submitMessage}</p> : null}
+            </form>
+        </div>
+    );
 };
 
 export default CommentForm;

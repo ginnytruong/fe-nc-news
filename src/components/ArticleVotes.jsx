@@ -14,11 +14,10 @@ const ArticleVotes = ({article_id, votes, updateVotes}) => {
 
     return (
             <div className='vote-buttons'>
-            <button className='vote-button upvote' onClick={increaseVotes}>⬆</button>
+            <button className='vote-button upvote' onClick={increaseVotes}>⬆️</button>
             <span className='vote-count'> votes: {votes}</span>
-            <button className='vote-button downvote' onClick={decreaseVotes}>⬇</button>
+            <button className='vote-button downvote' onClick={decreaseVotes}>⬇️</button>
         </div>
     )
 }
-
 export default ArticleVotes;
