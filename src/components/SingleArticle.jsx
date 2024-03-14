@@ -23,12 +23,6 @@ const SingleArticle = () => {
         })
     }, [article_id]);
 
-    const updateVotes= (newVotes) => {
-        setSelectedArticle((article) => {
-            return {...article, votes: newVotes};
-        });
-    };
-
     const SingleArticleCard = () => {
         return (
             <div>
@@ -36,7 +30,7 @@ const SingleArticle = () => {
                 <p className="single-article-author">Author: {selectedArticle.author}</p>
                 <img className="single-article-img" src={selectedArticle.article_img_url}/>
                 <p className="single-article-body">{selectedArticle.body}</p>
-                <ArticleVotes article_id={article_id} votes={selectedArticle.votes} updateVotes={updateVotes}/>
+                <ArticleVotes article_id={article_id} votes={selectedArticle.votes}/>
                 <CommentCard comments={comments} article_id={article_id}/>
             </div>
         )
