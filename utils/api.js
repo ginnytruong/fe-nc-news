@@ -37,3 +37,8 @@ export const fetchArticlesByTopic = async (topic) => {
     const { data } = await ncNewsApi.get(`/articles?topic=${topic}`);
     return data.articles;
 };
+
+export const deleteComment = async (comment_id) => {
+    const { data } = await ncNewsApi.delete(`/comments/${comment_id}`);
+    return data.comments;
+};
