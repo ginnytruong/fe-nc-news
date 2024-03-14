@@ -14,11 +14,6 @@ export const fetchArticleComments = async (article_id) => {
     return data.comments;
 };
 
-export const fetchArticlesByTopic = async (topic) => {
-    const { data } = await ncNewsApi.get(`/articles?topic=${topic}`);
-    return data.articles;
-};
-
 export const fetchAllArticles = async () => {
     const { data } = await ncNewsApi.get('/articles');
     return data.articles;
@@ -31,9 +26,14 @@ export const patchArticleVotes = async (article_id, patchBody) => {
 export const postComment = async (article_id, comment) => {
     const { data } = await ncNewsApi.post(`/articles/${article_id}/comments`, comment);
     return data.comments;
-}
+};
 
 export const fetchUsers = async () => {
     const { data } = await ncNewsApi.get('/users');
     return data.users;
+};
+
+export const fetchArticlesByTopic = async (topic) => {
+    const { data } = await ncNewsApi.get(`/articles?topic=${topic}`);
+    return data.articles;
 };
