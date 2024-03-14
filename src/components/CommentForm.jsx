@@ -1,9 +1,6 @@
 import { useState, useContext } from 'react';
 import { postComment } from '../../utils/api';
 import { UserContext } from '../components/UserContext';
-import { useState, useContext } from 'react';
-import { postComment } from '../../utils/api';
-import { UserContext } from '../components/UserContext';
 
 const CommentForm = ({ article_id }) => {
     const [comment, setComment] = useState({ body: '' });
@@ -23,7 +20,7 @@ const CommentForm = ({ article_id }) => {
         postComment(article_id, { ...comment, username: selectedUser })
             .then(() => {
                 setComment({ body: '' });
-                setSubmitMessage('Comment posted successfully!');
+                setSubmitMessage('Comment is posting...');
             })
             .finally(() => {
                 setIsPosting(false);
