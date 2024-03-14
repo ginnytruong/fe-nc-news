@@ -202,6 +202,9 @@ body {
   display: flex;
   align-items: center;
 }
+.vote-button:hover {
+  background-color: transparent;
+}
 
 .vote-button {
 background-color: transparent;

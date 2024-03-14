@@ -1,17 +1,20 @@
 import { useState, useContext } from 'react';
 import { postComment } from '../../utils/api';
 import { UserContext } from '../components/UserContext';
+import { useState, useContext } from 'react';
+import { postComment } from '../../utils/api';
+import { UserContext } from '../components/UserContext';
 
 const CommentForm = ({ article_id }) => {
     const [comment, setComment] = useState({ body: '' });
     const [submitMessage, setSubmitMessage] = useState('');
     const [isPosting, setIsPosting] = useState(false);
-    const { selectedUser } = useContext(UserContext);
+    const { selectedUser, isLoggedIn } = useContext(UserContext);
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if (!selectedUser) {
+        if (!isLoggedIn) {
             setSubmitMessage('Please sign in to leave a comment!');
             return;
         }
@@ -43,7 +46,7 @@ const CommentForm = ({ article_id }) => {
                 <button type="post-comment-button">
                     {isPosting ? 'Posting...' : 'Post Comment'}
                 </button>
-                {submitMessage && <p>{submitMessage}</p>}
+                {submitMessage ? <p>{submitMessage}</p> : null}
             </form>
         </div>
     );

@@ -24,5 +24,4 @@ const ArticleVotes = ({article_id, votes}) => {
         </div>
     )
 }
-
 export default ArticleVotes;

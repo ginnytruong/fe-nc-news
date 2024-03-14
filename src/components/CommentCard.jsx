@@ -24,3 +24,4 @@ const CommentCard = ({ comments, article_id }) => {
 };
 
 export default CommentCard;
+

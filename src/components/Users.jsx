@@ -16,31 +16,31 @@ const Users = () => {
     const handleSignInOut = (username) => {
         if (isLoggedIn && selectedUser === username) {
             signOut();
+            console.log('User signed out:', selectedUser)
         } else {
             signIn(username);
+            console.log('User signed in:', username);
         }
     };
 
-    return (
+return (
         <>
-            <h1 className="user-page-header">User Page</h1>
-            <p className='sign-in-msg'> Signed in as: {isLoggedIn ? selectedUser : 'Select User'}</p>
-            <div className="user-page">
-                <div className="user-list">
-                    {users.map(user => (
-                        <div key={user.username} className="user-item">
-                            <img src={user.avatar_url} alt={user.name} className="user-avatar" />
-                            <p>username: {user.username}</p>
-                            <p>{user.name}</p>
-                            <button onClick={() => handleSignInOut(user.username)}>
-                                {isLoggedIn && selectedUser === user.username ? "Sign Out" : "Sign In"}
-                            </button>
-                        </div>
-                    ))}
+          <h1 className="user-page-header">User Page</h1>
+          <p className='sign-in-msg'> Signed in as: {isLoggedIn ? selectedUser : 'Select User'}</p>
+          <div className="user-page">
+            <div className="user-list">
+              {users.map(user => (
+                <div key={user.username} className="user-item">
+                  <img src={user.avatar_url} alt={user.name} className="user-avatar" />
+                  <p>username: {user.username}</p>
+                  <p>{user.name}</p>
+                  <button onClick={() => handleSignInOut(user.username)}>{isLoggedIn && selectedUser === user.username ? "Sign Out" : "Sign In"}</button>
                 </div>
+              ))}
             </div>
+          </div>
         </>
-    );
+      );
 };
     
 export default Users;
