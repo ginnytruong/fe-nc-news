@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { fetchArticlesByTopic } from "../../utils/api";
 import { Link, useParams } from "react-router-dom";
+import NotFound from "./NotFound";
 
 const ArticlesByTopic = () => {
     const { topic } = useParams();
     const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         setIsLoading(true);
@@ -13,8 +15,17 @@ const ArticlesByTopic = () => {
             .then(data => {
                 setArticles(data);
                 setIsLoading(false);
+                setError(null);
+            })
+            .catch(error => {
+                setError(error)
+                setIsLoading(false)
             })
     }, [topic, setArticles]);
+
+    if (error && error.response && error.response.status === 404) {
+        return <NotFound />;
+    }
 
     const articlesByTopicMap = articles.map((article) => (
         <li className="article" key={article.article_id}>

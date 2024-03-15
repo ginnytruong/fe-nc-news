@@ -6,6 +6,7 @@ import ArticlesList from './components/ArticlesList';
 import ArticlesByTopic from './components/ArticlesByTopic';
 import SingleArticle from './components/SingleArticle';
 import Users from './components/Users';
+import NotFound from './components/NotFound';
 import { UserProvider } from './components/UserContext';
 
 function App() {
@@ -21,9 +22,11 @@ function App() {
           <Route path="/topics/:topic" element={<ArticlesByTopic />} />
           <Route path="/articles/:article_id" element={<SingleArticle />} />
           <Route path="/users" element={<Users />} />
+          <Route path="*" element={<NotFound />}/> 
         </Routes>
       </UserProvider>
     </div>
   );
 };
   export default App;
+

@@ -346,7 +346,9 @@ button:hover {
   }
 }
 
-
+.not-found-error{
+  text-align: center;
+}
 
 
 
