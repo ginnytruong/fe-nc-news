@@ -1,24 +1,13 @@
 To Do List
 
-API COMPONENT
-- Use axios param objects to query API instead of current functions in API
-
 VOTES COMPONENT
 - Amend article votes to be a generic vote component to cover all article/comment votes
 
-COMMENTS & DELETE COMMENTS FUNCTIONALITY
-- Update the comment state with the output of the post request, as currently can only see comment if we refresh the page 
-- Implement a message to inform users if the post fails
-- Implement functionality to prevent multiple clicks on the post button while the request is in progress
+COMMENTS COMPONENT
+- Currently functional, however, receiving 400 bad request in console - needs debugging
 
 SORT BY ORDER BY
-- implement sort by and order by functionality
-
-ERROR HANDLING 
-- errors for articles/:invalid_article_id
-
-WIREFRAME & COMPONENT TREE
-- Refactor wireframe and component tree
+- implement 'sort by' and 'order by' functionality
 
 DEPLOY APP
 - There are many ways to deploy a React application. The create-react-app docs go into detail on some of the options.

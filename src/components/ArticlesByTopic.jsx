@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { fetchArticlesByTopic } from "../../utils/api";
 import { Link, useParams } from "react-router-dom";
 import NotFound from "./NotFound";
+import Loading from "./Loading";
 
 const ArticlesByTopic = () => {
     const { topic } = useParams();
@@ -42,7 +43,7 @@ const ArticlesByTopic = () => {
             <div className="articles-page">
                 <h1 className="topic-header">Articles on {topic}</h1>
                 {isLoading ? (
-                    <p>Loading articles...</p>
+                    <Loading />
                 ) : (
                     <ul className="article-list">
                         {articlesByTopicMap}

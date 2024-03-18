@@ -7,7 +7,7 @@ import ArticlesByTopic from './components/ArticlesByTopic';
 import SingleArticle from './components/SingleArticle';
 import Users from './components/Users';
 import NotFound from './components/NotFound';
-import { UserProvider } from './components/UserContext';
+import { UserProvider } from '../context/UserContext';
 
 function App() {
   return (

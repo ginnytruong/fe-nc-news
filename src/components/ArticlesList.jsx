@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { fetchAllArticles } from "../../utils/api";
+import Loading from "./Loading";
 
 const ArticlesList = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +19,7 @@ const ArticlesList = () => {
     return (
         <div className="articles-page">
             {isLoading ? (
-                <p>Loading articles...</p>
+                <Loading />
             ) : (
                 <ul className="article-list">
                     {articles.map((article) => (

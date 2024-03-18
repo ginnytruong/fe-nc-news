@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import { fetchUsers } from '../../utils/api';
-import { UserContext } from './UserContext';
+import { UserContext } from '../../context/UserContext';
 
 const Users = () => {
     const [users, setUsers] = useState([]);

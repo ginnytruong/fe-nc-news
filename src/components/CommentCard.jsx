@@ -1,6 +1,6 @@
 import CommentForm from "./CommentForm";
 import { deleteComment, fetchArticleComments, postComment } from "../../utils/api";
-import { UserContext } from "./UserContext";
+import { UserContext } from "../../context/UserContext";
 import { useState, useContext, useEffect} from 'react'
 
 const CommentCard = ({ article_id }) => {
@@ -11,13 +11,13 @@ const CommentCard = ({ article_id }) => {
     useEffect(() => {
         fetchArticleComments(article_id)
             .then(setComments);
-    }, [article_id]);
+    }, [article_id, deletedCommentId]);
     
     const handleDelete = (comment_id) => {
         deleteComment(comment_id)
             .then(() => {
                 setDeletedCommentId(comment_id);
-            });
+            })
     };
     
     useEffect(() => {
@@ -29,7 +29,7 @@ const CommentCard = ({ article_id }) => {
               ? { ...comment, body: 'This comment has been deleted.' }
               : comment))
         });
-    }, [comments]);
+    }, [deletedCommentId]);
 
     const handleNewComment = async (comment) => {
         try {
@@ -39,6 +39,12 @@ const CommentCard = ({ article_id }) => {
             console.error("Error posting comment:", error);
         }
     };
+
+    useEffect(() => {
+        fetchArticleComments(article_id)
+            .then(setComments);
+    }, [comments]);
+
 
     return (
         <>

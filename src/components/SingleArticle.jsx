@@ -3,25 +3,36 @@ import { useState, useEffect } from 'react';
 import { fetchSingleArticle, fetchArticleComments } from "../../utils/api";
 import CommentCard from './CommentCard';
 import ArticleVotes from './ArticleVotes';
+import Loading from './Loading';
+import NotFound from './NotFound';
 
 const SingleArticle = () => {
     const { article_id } = useParams();
     const [selectedArticle, setSelectedArticle] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [comments, setComments] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         setIsLoading(true);
+        setError(null); 
         fetchSingleArticle(article_id)
         .then((data) => {
             setSelectedArticle(data);
             setIsLoading(false);
+        })
+        .catch((error) => {
+            setError(error);
         })
         fetchArticleComments(article_id)
         .then((data) => {
             setComments(data)
         })
     }, [article_id]);
+
+    if (error && error.response && error.response.status === 404) {
+        return <NotFound />;
+    }
 
     const SingleArticleCard = () => {
         return (
@@ -39,7 +50,7 @@ const SingleArticle = () => {
     return(
         <div className="single-article">
             {isLoading ? (
-                <p>Loading article...</p>
+                <Loading />
             ) : (
                 <div className="single-article-card">
                     <SingleArticleCard />

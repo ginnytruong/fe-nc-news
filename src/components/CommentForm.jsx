@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { postComment } from '../../utils/api';
-import { UserContext } from '../components/UserContext';
+import { UserContext } from '../../context/UserContext';
 
 const CommentForm = ({ article_id, onNewComment }) => {
     const [comment, setComment] = useState({ body: '' });
@@ -18,7 +18,7 @@ const CommentForm = ({ article_id, onNewComment }) => {
         postComment(article_id, { username: selectedUser, body: comment.body})
             .then((newComment) => {
                 onNewComment(prevComments => [...prevComments, newComment])
-                setComment({ body: '' });
+                setComment({ username: selectedUser, body: '' });
                 setSubmitMessage('Comment posted successfully.');
             })
             .finally(() => {
