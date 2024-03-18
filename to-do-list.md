@@ -1,4 +1,4 @@
-To Do List
+OUTSTANDING TO DO LIST
 
 VOTES COMPONENT
 - Amend article votes to be a generic vote component to cover all article/comment votes
@@ -8,10 +8,6 @@ COMMENTS COMPONENT
 
 SORT BY ORDER BY
 - implement 'sort by' and 'order by' functionality
-
-DEPLOY APP
-- There are many ways to deploy a React application. The create-react-app docs go into detail on some of the options.
-- We recommend Netlify. Instructions for deploying an app with Netlify can be found at: https://notes.northcoders.com/courses/js-front-end/hosting.
 
 README.md
 - Make sure that your README includes the following:

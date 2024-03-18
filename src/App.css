@@ -98,6 +98,12 @@ body {
   padding: 0;
   margin: 0;
 }
+.article-title {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: black !important; 
+  text-decoration: none;
+}
 
 .article {
   background-color: #fff;
@@ -111,11 +117,6 @@ body {
   width: 100%;
   height: auto;
   border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.article-title {
-  font-size: 1.4rem;
   margin-bottom: 10px;
 }
 
@@ -311,7 +312,7 @@ margin-top: 10px;
 
 .user-avatar {
   width: 100%;
-  max-width: 100px; /* adjust max-width to desired size */
+  max-width: 100px;
   height: auto;
   border-radius: 50%;
   margin-bottom: 10px;
