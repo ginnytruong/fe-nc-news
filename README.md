@@ -4,7 +4,7 @@
 https://ginny-nc-news.netlify.app
 
 ## Project Summary 
-Northcoders News is a social news aggregation, web content rating, and discussion website. It features articles categorized into topics, each with user-curated ratings through upvotes and downvotes using the API. Additionally, users can engage in discussions by adding comments to articles.
+Northcoders News is a social news aggregation, web content rating, and discussion website. It features articles categorised into topics, each with user-curated ratings through upvotes and downvotes using the API. Additionally, users can engage in discussions by adding comments to articles.
 
 ### Tech Stacks:
 * React.js
